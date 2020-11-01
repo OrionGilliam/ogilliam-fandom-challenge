@@ -1,17 +1,19 @@
-export interface CharacterBase {
-  name: string;
-  level: number;
-  classes: Class[];
-  stats: StatBlock;
-  items: Item[];
-  defenses: Defense[];
-}
-
-export interface CharacterInstance extends CharacterBase {
-  calculatedStats: StatBlock;
-  maxHP: number;
-  remainingHP: number;
-  tempHP: number;
+export interface CharacterAction {
+  action: "attack" | "healing" | "tempHP";
+  source:
+    | "fire"
+    | "cold"
+    | "lightning"
+    | "slashing"
+    | "piercing"
+    | "bludgeoning"
+    | "radiant"
+    | "necrotic"
+    | "psychic"
+    | "thunder"
+    | "acid"
+    | "force";
+  value: number;
 }
 
 export interface Class {
@@ -57,20 +59,18 @@ export interface Defense {
   defense: "resistance" | "immunity" | "vulnerable" | "absorption";
 }
 
-export interface CharacterAction {
-  action: "attack" | "healing" | "tempHP";
-  source:
-    | "fire"
-    | "cold"
-    | "lightning"
-    | "slashing"
-    | "piercing"
-    | "bludgeoning"
-    | "radiant"
-    | "necrotic"
-    | "psychic"
-    | "thunder"
-    | "acid"
-    | "force";
-  value: number;
+export interface CharacterBase {
+  name: string;
+  level: number;
+  classes: Class[];
+  stats: StatBlock;
+  items: Item[];
+  defenses: Defense[];
+}
+
+export interface CharacterInstance extends CharacterBase {
+  calculatedStats: StatBlock;
+  maxHP: number;
+  remainingHP: number;
+  tempHP: number;
 }

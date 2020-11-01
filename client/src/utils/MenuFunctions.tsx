@@ -1,7 +1,7 @@
 import { MenuItem, TableCell, TableRow } from "@material-ui/core";
 import * as React from "react";
-import { CharacterInstance } from "../../../server/src/types/interfaces";
 import { defenseTypes } from "./Constants";
+import {CharacterInstance} from "../types/Interfaces";
 
 export function professions(activeCharacter: CharacterInstance) {
   if (activeCharacter) {

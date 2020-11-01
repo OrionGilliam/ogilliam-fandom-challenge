@@ -1,4 +1,5 @@
-import { CharacterBase } from "../../../server/src/types/interfaces";
+import {CharacterBase} from "../types/Interfaces";
+
 
 export const defaultCharacter: CharacterBase = {
   name: "Briv",

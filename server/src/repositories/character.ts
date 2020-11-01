@@ -1,5 +1,5 @@
-import { CharacterAction, CharacterBase, CharacterInstance, CharacterReport } from "../types/interfaces";
-import { checkImmunity, checkResistance, checkVulnerable } from "../util/utils";
+import { CharacterAction, CharacterBase, CharacterInstance } from "../types/interfaces";
+import { checkAbsorption, checkImmunity, checkResistance, checkVulnerable } from "../util/utils";
 import { calculateHP, establishItemBonuses } from "./calculations/calculations";
 
 export let activeCharacter: CharacterInstance | null = null;
@@ -29,7 +29,9 @@ export function actionTime(action: CharacterAction): CharacterInstance {
     switch (action.action) {
       case "attack":
         //if character is immune to the damage type, nothing happens
-        if (checkImmunity(activeCharacter.defenses, action)) {
+        if (checkAbsorption(activeCharacter.defenses, action)) {
+          activeCharacter.remainingHP += action.value;
+        } else if (checkImmunity(activeCharacter.defenses, action)) {
           break;
         } else {
           //checks if character is vulnerable or resistant to the damage type, if both they cancel out
@@ -68,9 +70,5 @@ export function actionTime(action: CharacterAction): CharacterInstance {
   //maintains 0 as lowest HP, as per 5e rules set
   if (activeCharacter.remainingHP < 0) activeCharacter.remainingHP = 0;
 
-  return activeCharacter;
-}
-
-export function checkCharacter(): CharacterInstance | null {
   return activeCharacter;
 }

@@ -14,10 +14,10 @@ import {
   InputLabel,
   Button,
 } from "@material-ui/core";
-import { CharacterAction, CharacterInstance } from "../../../server/src/types/interfaces";
 import { postAction, postMakeCharacter } from "../API";
 import { defaultCharacter, defenseTypes } from "../utils/Constants";
 import { defenses, elementals, equipment, professions } from "../utils/MenuFunctions";
+import { CharacterAction, CharacterInstance } from "../types/Interfaces";
 
 const CharacterActions: React.FC<{}> = () => {
   const [activeCharacter, setActiveCharacter] = React.useState<CharacterInstance>();
