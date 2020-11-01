@@ -1,9 +1,8 @@
-import {CharacterBase} from "../types/Interfaces";
-
+import { CharacterBase } from "../types/Interfaces";
 
 export const defaultCharacter: CharacterBase = {
-  name: "Briv",
-  level: 5,
+  name: "Item Guy",
+  level: 8,
   classes: [
     {
       name: "fighter",
@@ -15,11 +14,16 @@ export const defaultCharacter: CharacterBase = {
       hitDiceValue: 6,
       classLevel: 2,
     },
+    {
+      name: "rogue",
+      hitDiceValue: 8,
+      classLevel: 3,
+    },
   ],
   stats: {
     strength: 15,
     dexterity: 12,
-    constitution: 14,
+    constitution: 6,
     intelligence: 13,
     wisdom: 10,
     charisma: 8,
@@ -34,32 +38,47 @@ export const defaultCharacter: CharacterBase = {
       },
     },
     {
-      name: "Ioun Stone of TempHP",
+      name: "Manual of Dexterity",
       modifier: {
-        affectedObject: "tempHP",
-        affectedValue: "",
-        value: 9,
+        affectedObject: "stats",
+        affectedValue: "dexterity",
+        value: 4,
       },
     },
     {
-      name: "Ioun Stone of Cold Vulnerability",
+      name: "Ring of Club Resistance",
       modifier: {
         affectedObject: "defenses",
-        affectedValue: "cold",
+        affectedValue: "bludgeoning",
+        value: "resistance",
+      },
+    },
+    {
+      name: "Curse Boots of Lava Walking",
+      modifier: {
+        affectedObject: "defenses",
+        affectedValue: "fire",
         value: "vulnerable",
       },
     },
-  ],
-  defenses: [
     {
-      type: "fire",
-      defense: "immunity",
+      name: "Headband of Death Drinking",
+      modifier: {
+        affectedObject: "defenses",
+        affectedValue: "necrotic",
+        value: "absorption",
+      },
     },
     {
-      type: "slashing",
-      defense: "resistance",
+      name: "Cloak of slight amounts of fake HP",
+      modifier: {
+        affectedObject: "tempHP",
+        affectedValue: "",
+        value: 3,
+      },
     },
   ],
+  defenses: [],
 };
 
 export const defenseTypes: string[] = [
