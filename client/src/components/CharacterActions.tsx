@@ -88,7 +88,7 @@ const CharacterActions: React.FC<{}> = () => {
                   <Input type={"number"} inputProps={{ min: "0" }} value={damage} onChange={handleChange("damage")} />
                 </TableCell>
                 <TableCell>
-                  <Button onClick={submitAction} color={"primary"}>
+                  <Button onClick={submitAction} color={"secondary"} variant={"outlined"}>
                     Submit Action
                   </Button>
                 </TableCell>
