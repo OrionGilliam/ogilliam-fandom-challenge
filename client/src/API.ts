@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import {CharacterAction, CharacterBase, CharacterInstance} from "./types/Interfaces";
+import { CharacterAction, CharacterBase, CharacterInstance } from "./types/Interfaces";
 
 const baseUrl: string = "http://localhost:4000";
 
@@ -9,7 +9,7 @@ export const postMakeCharacter = async (character: CharacterBase): Promise<Axios
     return res;
   } catch (error) {
     window.location.reload();
-    throw new Error(error)
+    throw new Error(error);
   }
 };
 

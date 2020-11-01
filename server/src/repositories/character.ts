@@ -31,7 +31,9 @@ export function actionTime(action: CharacterAction): CharacterInstance {
         //if character is immune to the damage type, nothing happens
         if (
           checkAbsorption(activeCharacter.defenses, action) ||
-          (checkImmunity(activeCharacter.defenses, action) && checkResistance(activeCharacter.defenses, action) && !checkVulnerable(activeCharacter.defenses, action))
+          (checkImmunity(activeCharacter.defenses, action) &&
+            checkResistance(activeCharacter.defenses, action) &&
+            !checkVulnerable(activeCharacter.defenses, action))
         ) {
           activeCharacter.remainingHP += Math.trunc(action.value / 2);
         } else if (checkImmunity(activeCharacter.defenses, action)) {
